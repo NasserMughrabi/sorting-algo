@@ -4,7 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 
 const Nav = styled.nav`
-  background-color: #e3f2fd;
+  background-color: #34495e;
   height: 10vh;
   display:flex;
   align-items: center;
