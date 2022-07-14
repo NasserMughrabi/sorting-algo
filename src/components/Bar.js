@@ -2,15 +2,19 @@ import React from 'react'
 import styled from 'styled-components/macro';
 
 
+
 const BarItem = styled.div`
-  margin-left: 0.5rem;
-  width: 10vw;
+  width: 3vw;
 `;
 
 const Bar = ({item}) => {
-  const color = '#0073d8';
+  const color = '#7fbef5';
+  // const color = '#0073d8';
+  // 5E9ED6
   return (
-    <BarItem style={{height:`${item}vh`, background: `${color}`}} />
+    <div className='full-bar'>
+      <BarItem style={{height:`${item}vh`, background: `${color}`}} />
+    </div>
   )
 }
 
