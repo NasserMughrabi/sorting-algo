@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';;
+import React from "react";
+import Bar from "./components/Bar";
+import NavBar from "./components/NavBar";
+
+
+const arr = Array(30).fill(5).map(() => Math.round(Math.random() * 80))
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <NavBar />
       </header>
-    </div>
+      <main>
+        {arr.map((item, index)=>{
+          return (
+            <Bar key={index} item={item}/>
+          )
+        })}
+      </main>
+    </>
+    
   );
 }
 
