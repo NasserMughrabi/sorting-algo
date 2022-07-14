@@ -1,11 +1,11 @@
-*{
+* {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
 }
 
 
-.navbar{
+.navbar {
   padding-top: 0;
 }
 
@@ -20,7 +20,7 @@
   justify-content: center;
 }
 
-.full-bar{
+.full-bar {
   height: 78vh;
   display: flex;
   width: 10vw;
@@ -29,7 +29,7 @@
   align-items: flex-end;
 }
 
-.bottom{
+.bottom {
   height: 10vh;
   background-color: #34495e;
   /* text-align: center; */
@@ -40,22 +40,110 @@
   padding: 1.3rem;
 }
 
-.btn-div{
+.btn-div {}
 
-}
-
-.algos-drop{
+.algos-drop {
   margin-left: 4rem;
 }
+
 .title {
   margin-left: 1rem;
   color: white;
 }
-.bar{
+
+.bar {
   margin-left: 0.5rem;
   width: 10vw;
 }
-#dropdown-width{
-  width: '10rem';
+
+#dropdown-width {
+  width: 10rem;
+}
+
+
+
+
+@media (max-width: 400px) {
+  .algos-drop {
+    margin-left: 0.2rem;
+  }
+  .title{
+    width: 10rem;
+  }
+  #dropdown-width {
+    width: 3.9rem;
+    overflow: hidden;
+  }
+  .bottom {
+    text-align: center;
+    padding: 0.9rem;
+  }
+  
+}
+
+@media (min-width: 400px) {
+  .algos-drop {
+    margin-left: 0.2rem;
+  }
+
+  .title {
+    width: 10rem;
+  }
+
+  #dropdown-width {
+    width: 4.69rem;
+    overflow: hidden;
+  }
+
+  .bottom {
+    text-align: center;
+    padding: 0.9rem;
+  }
+}
+
+
+@media (min-width: 500px) {
+  .algos-drop {
+    margin-left: 0.2rem;
+  }
+
+  .title {
+    width: 10rem;
+  }
+
+  #dropdown-width {
+    width: 7.69rem;
+    overflow: hidden;
+  }
+
+  .bottom {
+    text-align: center;
+    padding: 0.9rem;
+  }
+}
+
+@media (min-width: 950px) {
+  .algos-drop {
+    margin-left: 4rem;
+  }
+
+  .title {
+    margin-left: 1rem;
+    color: white;
+    width: 16rem;
+  }
+
+  #dropdown-width {
+    width: 14rem;
+  }
+
+  .bottom {
+    text-align: center;
+    padding: 0.9rem;
+  }
+
+  .btn-div{
+    font-size: 20px;
+  }
 }
 
