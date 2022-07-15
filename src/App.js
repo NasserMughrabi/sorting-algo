@@ -1,6 +1,6 @@
 import React from "react";
-import Bars from "./components/Bars";
 import NavBar from "./components/NavBar";
+import Bars from "./components/Bars";
 import Footer from "./components/Footer";
 import { useState } from "react";
 
@@ -8,15 +8,16 @@ import { useState } from "react";
 function App() {
 
   const [arrSize, setArrSize] = useState(25);
-  // generate an arr of random numbers between 1 and 69 (1 and 69 included)
-  const arr = Array(arrSize).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1));
-
+  const [algorithm, setAlgorithm] = useState('');
+  const [speed, setSpeed] = useState('');
+  const [beginSort, setBeginSort] = useState(false);
+  // console.log('be', beginSort);
   return (
     <>
     <main>
-      <NavBar setArrSize={setArrSize}/>
-      <Bars arr={arr}/>
-      <Footer />
+      <NavBar setArrSize={setArrSize} setAlgorithm={setAlgorithm} setSpeed={setSpeed} setBeginSort={setBeginSort}/>
+      <Bars arrSize={arrSize} algorithm={algorithm} speed={speed} beginSort={beginSort}/>
+      <Footer setBeginSort={setBeginSort}/>
     </main>
     </>
     

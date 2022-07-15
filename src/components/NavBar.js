@@ -11,26 +11,35 @@ const Nav = styled.nav`
   align-items: center;
 `;
 
-const NavBar = ({setArrSize}) => {
+const NavBar = ({setArrSize, setAlgorithm, setSpeed, setBeginSort}) => {
 
   const algoEl = useRef(null);
   const speedEl = useRef(null);
   const sizeEl = useRef(null);
   const handleAlgoClick = (e) => {
+    const algorithm = e.target.textContent;
+    if(algorithm !== 'Choose Sorting Algorithm'){
+      setAlgorithm(algorithm);
+      setBeginSort(false);
+    }
     algoEl.current.textContent = e.target.textContent;
   }
   const handleSpeedClick = (e) => {
+    const speed = e.target.textContent;
+    if(speed !== 'Choose Sorting Speed'){
+      setSpeed(speed);
+      setBeginSort(false);
+    }
     speedEl.current.textContent = e.target.textContent;
   }
   const handleSizeClick = (e) => {
     const size = parseInt(e.target.textContent);
     if(size){
       setArrSize(size);
+      setBeginSort(false);
     }
     sizeEl.current.textContent = e.target.textContent;
   }
-
-
 
   return (
     <section className='navbar'>
@@ -63,7 +72,7 @@ const NavBar = ({setArrSize}) => {
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className='algos-drop'>
-        <Dropdown.Toggle ref={sizeEl} variant="success" id="dropdown-width">
+        <Dropdown.Toggle ref={sizeEl} variant="success" id="dropdown-width" className='sizes'>
           Choose Array Size
         </Dropdown.Toggle>
 
