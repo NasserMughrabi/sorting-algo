@@ -13,7 +13,7 @@
   height: 79vh;
   width: 100vw;
   padding: 0vh 2vw;
-  padding-bottom: 0vh;
+  padding-bottom: 1vh;
   display: flex;
   word-spacing: 1px;
   text-align: center;
@@ -29,7 +29,7 @@
   align-items: flex-end;
 }
 
-.bottom {
+.footer {
   height: 10vh;
   background-color: #34495e;
   padding: 1.3rem;
@@ -67,7 +67,7 @@
     width: 3.9rem;
     overflow: hidden;
   }
-  .bottom {
+  .footer {
     text-align: center;
     padding: 0.9rem;
   }
@@ -94,7 +94,7 @@
     overflow: hidden;
   }
 
-  .bottom {
+  .footer {
     text-align: center;
     padding: 0.9rem;
   }
@@ -115,7 +115,7 @@
     overflow: hidden;
   }
 
-  .bottom {
+  .footer {
     text-align: center;
     padding: 0.9rem;
   }
@@ -136,7 +136,7 @@
     width: 14rem;
   }
 
-  .bottom {
+  .footer {
     text-align: center;
     padding: 0.9rem;
   }

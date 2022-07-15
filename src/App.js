@@ -1,9 +1,8 @@
 import React from "react";
 import Bars from "./components/Bars";
 import NavBar from "./components/NavBar";
-import Bottom from "./components/Bottom";
+import Footer from "./components/Footer";
 import { useState } from "react";
-
 
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
     <main>
       <NavBar setArrSize={setArrSize}/>
       <Bars arr={arr}/>
-      <Bottom />
+      <Footer />
     </main>
     </>
     
