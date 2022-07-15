@@ -32,15 +32,8 @@
 .bottom {
   height: 10vh;
   background-color: #34495e;
-  /* text-align: center; */
-  /* padding-top: 1.3rem; */
-  /* align-items: center; */
-  /* text-align: center; */
-  /* justify-content: center; */
   padding: 1.3rem;
 }
-
-.btn-div {}
 
 .algos-drop {
   margin-left: 4rem;

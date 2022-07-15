@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 
 
 const BarItem = styled.div`
-  width: 3vw;
+  width: 100%;
 `;
 
 const Bar = ({item}) => {
