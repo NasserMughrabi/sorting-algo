@@ -17,7 +17,7 @@ const NavBar = () => {
         <h2 className='title'>Sorting Visualizer</h2>
       <Dropdown className='algos-drop'>
         <Dropdown.Toggle variant="success" id="dropdown-width">
-          Sorting Algorithm
+          Choose Sorting Algorithm
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -28,7 +28,7 @@ const NavBar = () => {
       </Dropdown>
       <Dropdown className='algos-drop'>
         <Dropdown.Toggle variant="success" id="dropdown-width">
-          Sorting Speed
+          Choose Sorting Speed
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -39,7 +39,7 @@ const NavBar = () => {
       </Dropdown>
       <Dropdown className='algos-drop'>
         <Dropdown.Toggle variant="success" id="dropdown-width">
-          Array Size
+          Choose Array Size
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
