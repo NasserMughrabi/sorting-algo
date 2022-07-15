@@ -1,46 +1,48 @@
-import React from 'react'
+import React from 'react';
 
-
-const bubbleSort = (arr, algorithm, speed) =>{
-
-
+const bubbleSort = async (arr, speed) =>{
     for(let i = 0; i < arr.length; i++){
-        for(let j = 0; j < arr.length; j++){
-            if(arr[j] > arr[j+1]){
-                swap(arr, j, j+1)
-                // setHeight();
-                // setColor();
+        let swapped = false;
+        for(let j = 1; j < arr.length; j++){
+            document.getElementById(`${j}`).style.background='red';
+            document.getElementById(`${j-1}`).style.background='red';
+            await new Promise(resolve => setTimeout(resolve, 1000/speed));
+            document.getElementById(`${j}`).style.background='#7fbef5';
+            document.getElementById(`${j-1}`).style.background='#7fbef5';
+            
+            if(arr[j] < arr[j-1]){
+                swap(arr, j, j-1);
+                swapped = true;
             }
         }
+        if(!swapped){
+            break;
+        }
     }
-    console.log('arr', arr);
-    // return arr;
 }
 const swap = (arr, index1, index2) => {
     const temp = arr[index1];
     arr[index1] = arr[index2];
     arr[index2] = temp;
+    // swap element heights
+    const tempEl = document.getElementById(`${index1}`).style.height;
+    document.getElementById(`${index1}`).style.height = document.getElementById(`${index2}`).style.height;
+    document.getElementById(`${index2}`).style.height = tempEl;
 }
 
-const Bars = ({arrSize, algorithm, speed, beginSort}) => {
-    // generate an arr of random numbers between 1 and 69 (1 and 69 included)
-    const arr = Array(arrSize).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1));
-
-    // console.log('d ', arr, algorithm, speed);
-    // const colorsArr = new Array();
+const Bars = ({arr, algorithm, speed, beginSort}) => {
     if(beginSort){
         if(algorithm === 'Bubble Sort'){
-            bubbleSort(arr, algorithm, speed);
+            bubbleSort(arr, speed);
         }
     }
 
-    const color = '#7fbef5';
     return (
         <section className="bars">
             {arr.map((height, index)=>{
                 return (
                 <div key={index} className='outer-bar'>
-                    <div className='inner-bar' style={{height:`${height}vh`, background: `${color}`, width: '100%'}} >
+                    <div id={index} className='inner-bar' style={{height:`${height}vh`, background: `#7fbef5`, width: '100%'}} >
                     </div>
                 </div>
                 )

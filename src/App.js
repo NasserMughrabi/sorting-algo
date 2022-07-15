@@ -7,16 +7,15 @@ import { useState } from "react";
 
 function App() {
 
-  const [arrSize, setArrSize] = useState(25);
+  const [arr, setArr] = useState(Array(25).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
   const [algorithm, setAlgorithm] = useState('');
   const [speed, setSpeed] = useState('');
   const [beginSort, setBeginSort] = useState(false);
-  // console.log('be', beginSort);
   return (
     <>
     <main>
-      <NavBar setArrSize={setArrSize} setAlgorithm={setAlgorithm} setSpeed={setSpeed} setBeginSort={setBeginSort}/>
-      <Bars arrSize={arrSize} algorithm={algorithm} speed={speed} beginSort={beginSort}/>
+      <NavBar setArr={setArr} setAlgorithm={setAlgorithm} setSpeed={setSpeed} setBeginSort={setBeginSort}/>
+      <Bars arr={arr} algorithm={algorithm} speed={speed} beginSort={beginSort}/>
       <Footer setBeginSort={setBeginSort}/>
     </main>
     </>

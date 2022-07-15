@@ -11,7 +11,7 @@ const Nav = styled.nav`
   align-items: center;
 `;
 
-const NavBar = ({setArrSize, setAlgorithm, setSpeed, setBeginSort}) => {
+const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
 
   const algoEl = useRef(null);
   const speedEl = useRef(null);
@@ -25,8 +25,11 @@ const NavBar = ({setArrSize, setAlgorithm, setSpeed, setBeginSort}) => {
     algoEl.current.textContent = e.target.textContent;
   }
   const handleSpeedClick = (e) => {
-    const speed = e.target.textContent;
-    if(speed !== 'Choose Sorting Speed'){
+    let speed = parseInt(e.target.textContent);
+    if(speed){
+      if(speed===3){
+        speed=12;
+      }
       setSpeed(speed);
       setBeginSort(false);
     }
@@ -35,7 +38,7 @@ const NavBar = ({setArrSize, setAlgorithm, setSpeed, setBeginSort}) => {
   const handleSizeClick = (e) => {
     const size = parseInt(e.target.textContent);
     if(size){
-      setArrSize(size);
+      setArr(Array(size).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
       setBeginSort(false);
     }
     sizeEl.current.textContent = e.target.textContent;
@@ -66,9 +69,9 @@ const NavBar = ({setArrSize, setAlgorithm, setSpeed, setBeginSort}) => {
 
         <Dropdown.Menu>
           <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>Choose Sorting Speed</Dropdown.Item>
-          <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>Low</Dropdown.Item>
-          <Dropdown.Item href="#/action-2" onClick={handleSpeedClick}>Moderate</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>High</Dropdown.Item>
+          <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>1</Dropdown.Item>
+          <Dropdown.Item href="#/action-2" onClick={handleSpeedClick}>2</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>3</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown className='algos-drop'>
@@ -79,6 +82,7 @@ const NavBar = ({setArrSize, setAlgorithm, setSpeed, setBeginSort}) => {
         <Dropdown.Menu>
           <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>Choose Array Size</Dropdown.Item>
           <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>5</Dropdown.Item>
+          <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>10</Dropdown.Item>
           <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>25</Dropdown.Item>
           <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>50</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleSizeClick}>75</Dropdown.Item>
