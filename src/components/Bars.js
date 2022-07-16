@@ -32,11 +32,11 @@ const swap = (arr, index1, index2) => {
 
 const Bars = ({arr, algorithm, speed, beginSort}) => {
     if(beginSort){
+        // document.getElementById('btn').disabled = true;
         if(algorithm === 'Bubble Sort'){
             bubbleSort(arr, speed);
         }
     }
-
     return (
         <section className="bars">
             {arr.map((height, index)=>{

@@ -9,7 +9,7 @@ const Footer = ({setBeginSort}) => {
   return (
     <section className='footer'>
         <div className='btn-div'>
-            <Button style={{width:'10rem'}}  className='algos-drop' variant="success" onClick={handleClick}>Begin Sorting</Button>
+            <Button id='btn' style={{width:'10rem'}}  className='algos-drop' variant="success" onClick={handleClick}>Begin Sorting</Button>
         </div>
     </section>
   )

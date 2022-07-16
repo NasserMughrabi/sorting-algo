@@ -48,7 +48,7 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
     <section className='navbar'>
       <Nav>
         <h2 className='title'>Sorting Visualizer</h2>
-      <Dropdown className='algos-drop'>
+      <Dropdown id='btn' className='algos-drop'>
         <Dropdown.Toggle ref={algoEl} variant="success" id="dropdown-width">
           Choose Sorting Algorithm
         </Dropdown.Toggle>
@@ -62,7 +62,7 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-3" onClick={handleAlgoClick}>Bubble Sort</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown className='algos-drop'>
+      <Dropdown id='btn' className='algos-drop'>
         <Dropdown.Toggle ref={speedEl} variant="success" id="dropdown-width">
           Choose Sorting Speed
         </Dropdown.Toggle>
@@ -74,7 +74,7 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>3</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown className='algos-drop'>
+      <Dropdown id='btn' className='algos-drop'>
         <Dropdown.Toggle ref={sizeEl} variant="success" id="dropdown-width" className='sizes'>
           Choose Array Size
         </Dropdown.Toggle>
