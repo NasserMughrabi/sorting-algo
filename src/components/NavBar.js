@@ -30,6 +30,9 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
       if(speed===3){
         speed=12;
       }
+      if(speed===4){
+        speed=25;
+      }
       setSpeed(speed);
       setBeginSort(false);
     }
@@ -38,7 +41,8 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
   const handleSizeClick = (e) => {
     const size = parseInt(e.target.textContent);
     if(size){
-      setArr(Array(size).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
+      // generate an array of random numbers between 1 and 520
+      setArr(Array(size).fill(5).map(() => Math.round(Math.random() * (520 - 1 + 1) + 1)));
       setBeginSort(false);
     }
     sizeEl.current.textContent = e.target.textContent;
@@ -48,22 +52,22 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
     <section className='navbar'>
       <Nav>
         <h2 className='title'>Sorting Visualizer</h2>
-      <Dropdown id='btn' className='algos-drop'>
-        <Dropdown.Toggle ref={algoEl} variant="success" id="dropdown-width">
+      <Dropdown id='choose-algo' className='algos-drop'>
+        <Dropdown.Toggle ref={algoEl} variant="success" id="dropdown-width" className='algos'>
           Choose Sorting Algorithm
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
           <Dropdown.Item href="#/action-1" onClick={handleAlgoClick}>Choose Sorting Algorithm</Dropdown.Item>
-          <Dropdown.Item href="#/action-1" onClick={handleAlgoClick}>Insertion Sort</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleAlgoClick}>Bubble Sort</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleAlgoClick}>Selection Sort</Dropdown.Item>
+          <Dropdown.Item href="#/action-1" onClick={handleAlgoClick}>Insertion Sort</Dropdown.Item>
           <Dropdown.Item href="#/action-3" onClick={handleAlgoClick}>Merge Sort</Dropdown.Item>
           <Dropdown.Item href="#/action-3" onClick={handleAlgoClick}>Quick Sort</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" onClick={handleAlgoClick}>Bubble Sort</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown id='btn' className='algos-drop'>
-        <Dropdown.Toggle ref={speedEl} variant="success" id="dropdown-width">
+      <Dropdown id='choose-speed' className='algos-drop'>
+        <Dropdown.Toggle ref={speedEl} variant="success" id="dropdown-width" className='speeds'>
           Choose Sorting Speed
         </Dropdown.Toggle>
 
@@ -72,9 +76,10 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>1</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleSpeedClick}>2</Dropdown.Item>
           <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>3</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>4</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Dropdown id='btn' className='algos-drop'>
+      <Dropdown  className='algos-drop'>
         <Dropdown.Toggle ref={sizeEl} variant="success" id="dropdown-width" className='sizes'>
           Choose Array Size
         </Dropdown.Toggle>
@@ -87,6 +92,7 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>50</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleSizeClick}>75</Dropdown.Item>
           <Dropdown.Item href="#/action-3" onClick={handleSizeClick}>100</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleSizeClick}>200</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       </Nav>

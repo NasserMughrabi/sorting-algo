@@ -20,13 +20,31 @@
   justify-content: center;
 }
 
-.outer-bar {
+.inner-bar{
+  margin-left: 0.2rem;
+}
+
+/* body{
+  background-image: linear-gradient(90deg,#fd1da7 90%,white);
+  background-size: 400% 400%;
+  background-position: right;
+  animation: gradient 1s ease-in forwards;
+} */
+
+@keyframes gradient {
+  100% {
+    background-position: 0%;
+  }
+}
+
+#outer-bar {
   height: 78vh;
   display: flex;
   width: 10vw;
-  margin-left: 0.2rem;
+  /* margin-left: 0.2rem; */
   border: none;
   align-items: flex-end;
+  /* background-color: #79ff8b; */
 }
 
 .footer {

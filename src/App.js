@@ -7,7 +7,8 @@ import { useState } from "react";
 
 function App() {
 
-  const [arr, setArr] = useState(Array(25).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
+  // generate an array of random numbers between 1 and 520
+  const [arr, setArr] = useState(Array(25).fill(5).map(() => Math.round(Math.random() * (520 - 1 + 1) + 1)));
   const [algorithm, setAlgorithm] = useState('');
   const [speed, setSpeed] = useState('');
   const [beginSort, setBeginSort] = useState(false);
