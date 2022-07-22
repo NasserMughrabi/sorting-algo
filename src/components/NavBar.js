@@ -30,9 +30,6 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
       if(speed===3){
         speed=12;
       }
-      if(speed===4){
-        speed=25;
-      }
       setSpeed(speed);
       setBeginSort(false);
     }
@@ -41,8 +38,8 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
   const handleSizeClick = (e) => {
     const size = parseInt(e.target.textContent);
     if(size){
-      // generate an array of random numbers between 1 and 520
-      setArr(Array(size).fill(5).map(() => Math.round(Math.random() * (520 - 1 + 1) + 1)));
+      // generate an array of random numbers between 1 and 65
+      setArr(Array(size).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
       setBeginSort(false);
     }
     sizeEl.current.textContent = e.target.textContent;
@@ -76,7 +73,6 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>1</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleSpeedClick}>2</Dropdown.Item>
           <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>3</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>4</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown  className='algos-drop'>
