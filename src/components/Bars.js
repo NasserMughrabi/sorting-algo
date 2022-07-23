@@ -139,6 +139,7 @@ const insertionSort = async (arr, speed) => {
 }
 
 const bubbleSort = async (arr, speed) =>{
+    let last = arr.length-1;
     for(let i = 0; i < arr.length; i++){
         let swapped = false;
         for(let j = 1; j < arr.length; j++){
@@ -156,9 +157,15 @@ const bubbleSort = async (arr, speed) =>{
         if(!swapped){
             break;
         } 
+        // mark last index sorted every one full array round
+        animate(last);
+        last--;
     }
-    for (let index =0; index < arr.length; index++){
-        animate(index);
+
+    // animate the rest if break happens which is most likely to happen
+    while(last >= 0){
+        animate(last);
+        last--;
     }
     enableBtns();
 }
