@@ -24,79 +24,51 @@ const quickSort = async (arr, low, high, speed) => {
     }
 }
 
-const mergeSort = async (arr) => {
-    let midIndex = Math.round(arr.length / 2);
-
-    // recursion base case
-    if(arr.length === 1){
-        return;
+const mergeSort = async (arr, leftIndex, rightIndex, speed) => {
+    if (leftIndex >= rightIndex) {
+        return;   
     }
 
     // Divide
-    let leftArr = [];
-    let rightArr = [];
-    for (let i = 0; i < midIndex; i++) {
-        leftArr.push(arr[i]);
-    }
-    for (let j = midIndex; j < arr.length; j++) {
-        rightArr.push(arr[j]);
-    }
-    // Conquer
-    mergeSort(leftArr);
-    mergeSort(rightArr);
+    let midIndex = leftIndex + Math.floor((rightIndex - leftIndex) / 2);
 
-
-    // Merge arrays
-    let i = 0, j = 0, k = 0
-    while (leftArr.length > i && rightArr.length > j) {
-        // color current indexes
-        // document.getElementById(`${i}`).style.background='red';
-        console.log(j);
-        document.getElementById(`${j}`).style.background='green';
-        // document.getElementById(`${rightIndex}`).style.background='red';
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        // document.getElementById(`${i}`).style.background='#7fbef5';
-        document.getElementById(`${j}`).style.background='#7fbef5';
-        if (rightArr[j] < leftArr[i]) {
-            arr[k] = rightArr[j];
-            mergeSwap(arr, k, rightArr[j]);
-            j++;
+    await mergeSort(arr, leftIndex, midIndex, speed); // left array
+    await mergeSort(arr, midIndex+1, rightIndex, speed); // right array
+    
+    let leftStart = leftIndex, rightStart = midIndex+1;
+    while (rightStart <= rightIndex && leftStart < rightStart) {
+        document.getElementById(`${leftStart}`).style.background='red';
+        document.getElementById(`${rightStart}`).style.background='red';
+        await new Promise(resolve => setTimeout(resolve, 1000/speed));
+        document.getElementById(`${leftStart}`).style.background='#7fbef5';
+        document.getElementById(`${rightStart}`).style.background='#7fbef5';
+        if (arr[rightStart] < arr[leftStart]) {
+            mergeSwap(arr, leftStart, rightStart);
+            rightStart++;
+            leftStart++
         } else {
-            arr[k] = leftArr[i];
-            mergeSwap(arr, k, leftArr[i]);
-            i++;
+            leftStart++;
         }
-        k++;
+        animate(leftStart);
     }
 
-    while (leftArr.length > i) {
-        arr[k] = leftArr[i];
-        mergeSwap(arr, k, leftArr[i]);
-        i++;
-        k++;
+    if(rightStart >= arr.length-1){
+        animate(0);
+        enableBtns();
     }
-
-    while (rightArr.length > j) {
-        arr[k] = rightArr[j];
-        mergeSwap(arr, k, rightArr[j]);
-        j++;
-        k++;
-    }
-    enableBtns();
+    
 }
 
-// sliding window pattern
-const mergeSwap = (arr, k, item) => {
-
-    arr[k] = item;
-    document.getElementById(`${k}`).style.height = `${item}vh`;
-    // const temp = arr[rightIndex];
-    // for (let i=rightIndex; i > leftIndex; i--) {
-    //     arr[i] = arr[i-1];
-    // // document.getElementById(`${index}`).style.height = `${item}vh`;
-    // }
-    // arr[leftIndex] = temp;
-    // document.getElementById(`${index}`).style.height = `${item}vh`;
+const mergeSwap = (arr, leftIndex, rightIndex) => {
+    // swap element heights and arr values
+    const temp = arr[rightIndex];
+    const tempEl = document.getElementById(`${rightIndex}`).style.height;
+    for (let i=rightIndex; i > leftIndex; i--) {
+        arr[i] = arr[i-1];
+        document.getElementById(`${i}`).style.height = document.getElementById(`${i-1}`).style.height;
+    }
+    arr[leftIndex] = temp;
+    document.getElementById(`${leftIndex}`).style.height = tempEl;
 }
 
 const selectionSort = async (arr, speed) => {
@@ -117,8 +89,11 @@ const selectionSort = async (arr, speed) => {
             }
         }
         swap(arr, idx, min);
-        // animating sorted arr's sorted elements background gradient
+
+        // animating sorted arr's sorted elements using background gradient
         animate(idx);
+
+        // reset the blue bar to normal color after replaced with correct height
         await new Promise(resolve => setTimeout(resolve, 1000/speed));
         document.getElementById(`${idx}`).style.background='#7fbef5';
     }
@@ -243,7 +218,7 @@ const Bars = ({arr, algorithm, speed, beginSort}) => {
             selectionSort(arr, speed);
         } 
         else if (algorithm === 'Merge Sort'){
-            mergeSort(arr);
+            mergeSort(arr, 0, arr.length-1, speed);
         }
         else if (algorithm === 'Quick Sort'){
             quickSort(arr, 0, arr.length-1, speed);
