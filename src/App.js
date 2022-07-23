@@ -8,7 +8,7 @@ import { useState } from "react";
 function App() {
 
   // generate an array of random numbers between 1 and 65
-  const [arr, setArr] = useState(Array(50).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
+  const [arr, setArr] = useState(Array(75).fill(5).map(() => Math.round(Math.random() * (65 - 1 + 1) + 1)));
   const [algorithm, setAlgorithm] = useState('Bubble Sort');
   const [speed, setSpeed] = useState(9);
   const [beginSort, setBeginSort] = useState(false);
