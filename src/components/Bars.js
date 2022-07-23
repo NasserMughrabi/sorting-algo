@@ -39,7 +39,7 @@ const mergeSort = async (arr, leftIndex, rightIndex, speed) => {
 
     // Divide
     let midIndex = leftIndex + Math.floor((rightIndex - leftIndex) / 2);
-
+    // Conquer
     await mergeSort(arr, leftIndex, midIndex, speed); // left array
     await mergeSort(arr, midIndex+1, rightIndex, speed); // right array
     
@@ -140,9 +140,10 @@ const insertionSort = async (arr, speed) => {
 
 const bubbleSort = async (arr, speed) =>{
     let last = arr.length-1;
+    let sortedStartIndex = arr.length;
     for(let i = 0; i < arr.length; i++){
         let swapped = false;
-        for(let j = 1; j < arr.length; j++){
+        for(let j = 1; j < sortedStartIndex; j++){
             document.getElementById(`${j}`).style.background='red';
             document.getElementById(`${j-1}`).style.background='red';
             await new Promise(resolve => setTimeout(resolve, 1000/speed));
@@ -160,6 +161,7 @@ const bubbleSort = async (arr, speed) =>{
         // mark last index sorted every one full array round
         animate(last);
         last--;
+        sortedStartIndex--;
     }
 
     // animate the rest if break happens which is most likely to happen

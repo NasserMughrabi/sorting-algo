@@ -38,6 +38,16 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
     speedEl.current.textContent = e.target.textContent;
   }
   const handleSizeClick = (e) => {
+    // reset the algorithm chosen
+    // const algorithm = algoEl.current.textContent;
+    // console.log(algorithm);
+    // if (algorithm !== 'Choose Sorting Algorithm'){
+    //   setAlgorithm(algorithm);
+    //   setBeginSort(false);
+    // } else {
+    //   setAlgorithm('Bubble Sort');
+    //   setBeginSort(false);
+    // }
     const size = parseInt(e.target.textContent);
     if(size){
       // generate an array of random numbers between 1 and 65
