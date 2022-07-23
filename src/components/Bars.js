@@ -7,21 +7,35 @@ const quickSort = async (arr, low, high, speed) => {
 
         for (let j = low; j <= high - 1; j++) {
             document.getElementById(`${high}`).style.background='yellow';
-            document.getElementById(`${j}`).style.background='red';
-            await new Promise(resolve => setTimeout(resolve, 1000/speed));
-            document.getElementById(`${high}`).style.background='#7fbef5';
-            document.getElementById(`${j}`).style.background='#7fbef5';
+            // document.getElementById(`${j}`).style.background='red';
+            // await new Promise(resolve => setTimeout(resolve, 1000/speed));
+            // document.getElementById(`${high}`).style.background='#7fbef5';
+            // document.getElementById(`${j}`).style.background='#7fbef5';
             if (arr[j] < pivot) {
                 i++;
+
+                for(let index=i; index <=j; index++) {
+                    document.getElementsByClassName(`${index}`)[0].style.background='rgba(78,216,96,0.4)';
+                    document.getElementsByClassName(`${index}`)[0].style.background='rgba(78,216,96,0.4)';
+                }
+                await new Promise(resolve => setTimeout(resolve, 1000/speed));
+                for(let index=i; index <=j; index++) {
+                    document.getElementsByClassName(`${index}`)[0].style.background='white';
+                    document.getElementsByClassName(`${index}`)[0].style.background='white';
+                }
                 swap(arr, i, j);
             }
         }
+        document.getElementById(`${high}`).style.background='#7fbef5';
         swap(arr, i + 1, high);
         let pi = (i + 1);
 
-        quickSort(arr, low, pi - 1, speed);
-        quickSort(arr, pi + 1, high, speed);
+        await quickSort(arr, low, pi - 1, speed);
+        await quickSort(arr, pi + 1, high, speed);
     }
+
+    enableBtns();
+
 }
 
 const mergeSort = async (arr, leftIndex, rightIndex, speed) => {

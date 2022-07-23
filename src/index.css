@@ -157,10 +157,15 @@
   .footer {
     text-align: center;
     padding: 0.9rem;
+    /* height: 9.7vh; */
   }
 
   .btn-div{
     font-size: 20px;
   }
+
+  /* .bars{
+    width: 98.2vw;
+  } */
 }
 

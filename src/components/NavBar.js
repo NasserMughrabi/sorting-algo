@@ -48,7 +48,7 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
   return (
     <section className='navbar'>
       <Nav>
-        <h2 className='title'>Sorting Visualizer</h2>
+      <h2 className='title'>Sorting Visualizer</h2>
       <Dropdown id='choose-algo' className='algos-drop'>
         <Dropdown.Toggle ref={algoEl} variant="success" id="dropdown-width" className='algos'>
           Choose Sorting Algorithm
