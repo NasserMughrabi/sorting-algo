@@ -95,6 +95,9 @@
   .bars{
     height: 70vh;
   }
+  .size-200 {
+    visibility: hidden;
+  }
   
 }
 

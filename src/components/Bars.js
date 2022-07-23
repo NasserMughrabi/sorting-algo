@@ -7,10 +7,6 @@ const quickSort = async (arr, low, high, speed) => {
 
         for (let j = low; j <= high - 1; j++) {
             document.getElementById(`${high}`).style.background='yellow';
-            // document.getElementById(`${j}`).style.background='red';
-            // await new Promise(resolve => setTimeout(resolve, 1000/speed));
-            // document.getElementById(`${high}`).style.background='#7fbef5';
-            // document.getElementById(`${j}`).style.background='#7fbef5';
             if (arr[j] < pivot) {
                 i++;
 
@@ -33,9 +29,7 @@ const quickSort = async (arr, low, high, speed) => {
         await quickSort(arr, low, pi - 1, speed);
         await quickSort(arr, pi + 1, high, speed);
     }
-
     enableBtns();
-
 }
 
 const mergeSort = async (arr, leftIndex, rightIndex, speed) => {

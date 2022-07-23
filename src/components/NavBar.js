@@ -16,21 +16,23 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
   const algoEl = useRef(null);
   const speedEl = useRef(null);
   const sizeEl = useRef(null);
+
   const handleAlgoClick = (e) => {
     const algorithm = e.target.textContent;
-    if(algorithm !== 'Choose Sorting Algorithm'){
+    if (algorithm !== 'Choose Sorting Algorithm'){
       setAlgorithm(algorithm);
       setBeginSort(false);
     }
     algoEl.current.textContent = e.target.textContent;
   }
   const handleSpeedClick = (e) => {
-    let speed = parseInt(e.target.textContent);
+    let speed = parseInt(e.target.textContent.charAt(0));
     if(speed){
-      if(speed===3){
-        speed=12;
+      if(speed===5){
+        setSpeed(50);
+      } else {
+        setSpeed(speed*speed);
       }
-      setSpeed(speed);
       setBeginSort(false);
     }
     speedEl.current.textContent = e.target.textContent;
@@ -72,7 +74,9 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>Choose Sorting Speed</Dropdown.Item>
           <Dropdown.Item href="#/action-1" onClick={handleSpeedClick}>1</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleSpeedClick}>2</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>3</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>3 (Recommended)</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>4</Dropdown.Item>
+          <Dropdown.Item href="#/action-3" onClick={handleSpeedClick}>5</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <Dropdown  className='algos-drop'>
@@ -88,7 +92,7 @@ const NavBar = ({setArr, setAlgorithm, setSpeed, setBeginSort}) => {
           <Dropdown.Item href="#/action-1" onClick={handleSizeClick}>50</Dropdown.Item>
           <Dropdown.Item href="#/action-2" onClick={handleSizeClick}>75</Dropdown.Item>
           <Dropdown.Item href="#/action-3" onClick={handleSizeClick}>100</Dropdown.Item>
-          <Dropdown.Item href="#/action-3" onClick={handleSizeClick}>200</Dropdown.Item>
+          <Dropdown.Item className='size-200' href="#/action-3" onClick={handleSizeClick}>200</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       </Nav>
